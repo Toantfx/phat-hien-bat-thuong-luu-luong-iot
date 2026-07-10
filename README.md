@@ -12,15 +12,21 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 * Xây dựng và triển khai thực nghiệm mô hình Học máy (Machine Learning) baseline để tự động phân loại lưu lượng bình thường và bất thường.
 * Đánh giá hiệu năng của mô hình dựa trên các chỉ số bảo mật tiêu chuẩn (Accuracy, Precision, Recall).
 ## 3. Phạm vi và Tập dữ liệu (Dataset)
-* **Phạm vi:** Tập trung xử lý dữ liệu ở tầng mạng (Network/Transport Flow) dựa trên định dạng log kết nối.
-* **Tập dữ liệu sử dụng:** Thực nghiệm trên tập dữ liệu công khai **KDD Cup 99** (Bộ dữ liệu kinh điển, cấu trúc đơn giản, tệp tin nhỏ gọn, cực kỳ phù hợp để huấn luyện mô hình baseline chạy thử nghiệm nhanh chóng).
-## 4. Công cụ và Môi trường thực hiện 
+* **Phạm vi:** Tập trung xử lý dữ liệu ở tầng mạng (Network/Transport Flow) dựa trên định dạng log kết nối của các thiết bị IoT.
+* **Tập dữ liệu sử dụng:** Thực nghiệm trên tập dữ liệu **TON-IoT** (hoặc **CICIoT2023**). Đây là các bộ dữ liệu mới, mô phỏng chính xác các kịch bản tấn công mạng thực tế nhắm vào hệ thống IIoT/IoT thông minh, cung cấp đầy đủ các đặc trưng lưu lượng mạng hiện đại.
+
+## 4. Công cụ và Môi trường thực hiện
 * **Ngôn ngữ:** Python.
-* **Môi trường:** Google Colab (Xử lý online trên trình duyệt, không cần cài đặt phần mềm phức tạp vào máy tính).
-* **Thuật toán baseline:** Isolation Forest (Rừng cô lập) - Thuật toán học máy không giám sát hiệu quả nhất cho bài toán phát hiện phần tử dị biệt.
+* **Môi trường:** Google Colab (Xử lý online trên trình duyệt).
+* **Thuật toán baseline:** Isolation Forest (Rừng cô lập) - Thuật toán học máy không giám sát hiệu quả cho bài toán phát hiện phần tử dị biệt.
+* **Trực quan hóa (Demo):** Sử dụng thư viện Seaborn/Matplotlib để vẽ biểu đồ phân phối mẫu (Normal vs Anomaly) và biểu đồ ma trận nhầm lẫn (Confusion Matrix) nhằm đánh giá trực quan hiệu năng hệ thống.
+
 ## 5. Danh sách tài liệu tham khảo ban đầu
 1. OWASP Internet of Things - Top IoT Vulnerabilities.
-2. Bộ dữ liệu huấn luyện mạng: "KDD Cup 1999 Data" - UCI Machine Learning Repository.
+2. Bộ dữ liệu huấn luyện mạng IoT thế hệ mới: "The TON_IoT Datasets" hoặc "CICIoT2023 Dataset".
 3. Tài liệu hướng dẫn thuật toán Isolation Forest từ Scikit-Learn Documentation.
 4. Repo GitHub tham khảo xử lý lưu lượng: `https://github.com/scikit-learn/scikit-learn` (Thư viện gốc hỗ trợ các mô hình Baseline).
 5. Tài liệu môn học :'https://drive.google.com/drive/folders/1CgVfkRDFyF3NPUsf-ukFDtv-wkqoCx1x'
+6. Bài báo khoa học: "CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment" - Tạp chí MDPI Sensors (Nghiên cứu cấu trúc các lớp tấn công mạng IoT thực tế).
+7. Repo GitHub thực nghiệm: https://github.com/syedissambukhari/Intrusion-detection-in-CICIoT2023-Using-ML-and-DL-Approach (Tham khảo mã nguồn Python tiền xử lý dữ liệu và vẽ Confusion Matrix trên bộ dữ liệu IoT).
+8. Bài báo khoa học: "A Systematic Review of Data-Driven Attack Detection Trends in IoT" (Khảo sát các phương pháp học máy phát hiện bất thường dựa trên lưu lượng kết nối flow-based).
