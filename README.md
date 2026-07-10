@@ -23,3 +23,4 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 2. Bộ dữ liệu huấn luyện mạng: "KDD Cup 1999 Data" - UCI Machine Learning Repository.
 3. Tài liệu hướng dẫn thuật toán Isolation Forest từ Scikit-Learn Documentation.
 4. Repo GitHub tham khảo xử lý lưu lượng: `https://github.com/scikit-learn/scikit-learn` (Thư viện gốc hỗ trợ các mô hình Baseline).
+5. Tài liệu môn học :'https://drive.google.com/drive/folders/1CgVfkRDFyF3NPUsf-ukFDtv-wkqoCx1x'
