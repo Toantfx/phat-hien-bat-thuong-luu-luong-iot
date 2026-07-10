@@ -25,7 +25,7 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 1. OWASP Internet of Things - Top IoT Vulnerabilities.
 2. Bộ dữ liệu huấn luyện mạng IoT thế hệ mới: "The TON_IoT Datasets" hoặc "CICIoT2023 Dataset".
 3. Tài liệu hướng dẫn thuật toán Isolation Forest từ Scikit-Learn Documentation.
-4. Repo GitHub tham khảo xử lý lưu lượng: `https://github.com/scikit-learn/scikit-learn` (Thư viện gốc hỗ trợ các mô hình Baseline).
+4. Repo GitHub tham khảo xử lý lưu lượng: https://github.com/scikit-learn/scikit-learn (Thư viện gốc hỗ trợ các mô hình Baseline).
 5. Tài liệu môn học :'https://drive.google.com/drive/folders/1CgVfkRDFyF3NPUsf-ukFDtv-wkqoCx1x'
 6. Bài báo khoa học: "CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment" - Tạp chí MDPI Sensors (Nghiên cứu cấu trúc các lớp tấn công mạng IoT thực tế).
 7. Repo GitHub thực nghiệm: https://github.com/syedissambukhari/Intrusion-detection-in-CICIoT2023-Using-ML-and-DL-Approach (Tham khảo mã nguồn Python tiền xử lý dữ liệu và vẽ Confusion Matrix trên bộ dữ liệu IoT).
