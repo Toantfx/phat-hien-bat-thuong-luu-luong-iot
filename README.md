@@ -5,7 +5,6 @@
 * **Lớp:** INT4410 - Bảo mật trong IoT
 
 ---
-
 ## 1. Lý do chọn đề tài
 Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưng cũng đối mặt với nhiều rủi ro bảo mật lớn. Do hạn chế về tài nguyên tính toán phần cứng, các thiết bị IoT không thể cài đặt các hệ thống diệt virus hay tường lửa nặng nề. Do đó, phương pháp tiếp cận giám sát và phân tích lưu lượng mạng từ xa để tự động phát hiện hành vi bất thường (DDoS, tấn công quét cổng, Botnet) là giải pháp tối ưu và khả thi nhất hiện nay.
 ## 2. Mục tiêu đề tài
