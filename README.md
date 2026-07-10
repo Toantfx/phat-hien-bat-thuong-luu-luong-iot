@@ -14,7 +14,7 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 ## 3. Phạm vi và Tập dữ liệu (Dataset)
 * **Phạm vi:** Tập trung xử lý dữ liệu ở tầng mạng (Network/Transport Flow) dựa trên định dạng log kết nối.
 * **Tập dữ liệu sử dụng:** Thực nghiệm trên tập dữ liệu công khai **KDD Cup 99** (Bộ dữ liệu kinh điển, cấu trúc đơn giản, tệp tin nhỏ gọn, cực kỳ phù hợp để huấn luyện mô hình baseline chạy thử nghiệm nhanh chóng).
-## 4. Công cụ và Môi trường thực hiện (Phương pháp đơn giản nhất)
+## 4. Công cụ và Môi trường thực hiện 
 * **Ngôn ngữ:** Python.
 * **Môi trường:** Google Colab (Xử lý online trên trình duyệt, không cần cài đặt phần mềm phức tạp vào máy tính).
 * **Thuật toán baseline:** Isolation Forest (Rừng cô lập) - Thuật toán học máy không giám sát hiệu quả nhất cho bài toán phát hiện phần tử dị biệt.
@@ -23,4 +23,3 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 2. Bộ dữ liệu huấn luyện mạng: "KDD Cup 1999 Data" - UCI Machine Learning Repository.
 3. Tài liệu hướng dẫn thuật toán Isolation Forest từ Scikit-Learn Documentation.
 4. Repo GitHub tham khảo xử lý lưu lượng: `https://github.com/scikit-learn/scikit-learn` (Thư viện gốc hỗ trợ các mô hình Baseline).
-5. Giáo trình/Bài giảng học phần Bảo mật IoT - Đại học Văn Hiến (VHU).
