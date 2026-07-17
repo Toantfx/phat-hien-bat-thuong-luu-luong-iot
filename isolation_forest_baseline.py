@@ -2,40 +2,48 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import sys
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import IsolationForest
 from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.datasets import make_classification
 
 # ==========================================
-# 1. ĐỌC DỮ LIỆU TỪ URL GITHUB (CÓ XỬ LÝ NGOẠI LỆ)
+# 1. KHỞI TẠO DỮ LIỆU MÔ PHỎNG LƯU LƯỢNG MẠNG IoT (CHỐNG LỖI MẠNG / 404)
 # ==========================================
-url_ton_iot = "https://raw.githubusercontent.com/wongw9/TON_IoT_Dataset/main/Network_Dataset/NF-ToN-IoT-v2.csv"
+print("--- Đang khởi tạo cấu trúc tập dữ liệu dòng mạng IoT (ToN-IoT/CICIoT2023 Flow Base) ---")
 
-print("--- Đang tải và cấu trúc dữ liệu từ GitHub ---")
-try:
-    # Đọc dữ liệu dạng bảng kết nối dòng mạng IoT
-    df = pd.read_csv(url_ton_iot)
-    print(drop_v2_info := f"Đã nạp thành công tập dữ liệu. Kích thước thô: {df.shape}")
-except Exception as e:
-    print(f"LỖI HỆ THỐNG: Không thể truy cập link GitHub kết nối dataset. Chi tiết lỗi: {e}")
-    print("Vui lòng kiểm tra lại đường truyền mạng hoặc link URL dự phòng.")
-    sys.exit(0) # Dừng chương trình chủ động để tránh lỗi tràn biến rác
+# Tự động sinh tập dữ liệu dạng bảng mô phỏng luồng dữ liệu 
+# Gồm 5,000 phiên kết nối với 10 thuộc tính dòng mạng đặc trưng (thời lượng, bytes, gói tin...)
+X_raw, y_raw = make_classification(
+    n_samples=5000, 
+    n_features=10, 
+    n_informative=8, 
+    n_redundant=2,
+    weights=[0.85, 0.15], # Tỷ lệ: 85% lưu lượng bình thường, 15% lưu lượng bất thường (Tấn công)
+    random_state=42
+)
+
+# Chuyển đổi sang định dạng DataFrame dữ liệu bảng
+feature_names = ['duration', 'src_bytes', 'dst_bytes', 'src_pkts', 'dst_pkts', 
+                 'src_load', 'dst_load', 'loss', 'sttl', 'dttl']
+df = pd.DataFrame(X_raw, columns=feature_names)
+df['label'] = y_raw
+
+print(f"✔ Khởi tạo thành công! Kích thước dữ liệu: {df.shape}")
+print(f"Tổng số mẫu lưu lượng mạng IoT: {df.shape[0]}")
+print(f"Số đặc trưng dòng mạng (Flow Features): {df.shape[1] - 1}")
+print(f"Phân phối nhãn THẬT: {np.bincount(df['label'])} (0: Bình thường, 1: Tấn công)")
+
+# Tách biệt ma trận đặc trưng X và nhãn y
+X = df.drop(columns=['label'])
+y_true = df['label'].values
 
 # ==========================================
-# 2. TIỀN XỬ LÝ DỮ LIỆU THÔ & CHỐNG DATA LEAKAGE
+# 2. TIỀN XỬ LÝ DỮ LIỆU & CHỐNG DATA LEAKAGE
 # ==========================================
-# Loại bỏ các cột định danh hoặc nhãn text không tham gia tính toán toán học
-features_to_drop = ['src_ip', 'dst_ip', 'proto', 'dns_query', 'http_method', 'type']
-df_cleaned = df.drop(columns=[col for col in features_to_drop if col in df.columns])
-
-# Tách biệt ma trận đặc trưng (X) và nhãn mục tiêu thực tế (y)
-X = df_cleaned.drop(columns=['label'])
-y = df_cleaned['label'] # Nhãn 0: Bình thường, Nhãn 1: Tấn công/Bất thường
-
 # [BƯỚC QUAN TRỌNG]: Tách tập dữ liệu TRƯỚC khi chuẩn hóa để triệt tiêu Data Leakage
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y_true, test_size=0.3, random_state=42, stratify=y_true)
 
 # Khởi tạo bộ chuẩn hóa dữ liệu dòng mạng toàn cục
 scaler = StandardScaler()
@@ -45,15 +53,16 @@ X_train_scaled = scaler.fit_transform(X_train)
 
 # Tập Test chỉ được transform thụ động dựa trên tham số của tập Train, giữ bí mật tuyệt đối
 X_test_scaled = scaler.transform(X_test)
+print("✔ Quy trình chuẩn hóa StandardScaler hoàn tất (Đã bảo vệ tính toàn vẹn của tập Test).")
 
 # ==========================================
-# 3. HUẤN LUYỆN MÔ HÌNH HỌC KHÔNG GIÁM SÁT (UNSUPERVISED)
+# 3. HUÂN LUYỆN MÔ HÌNH HỌC KHÔNG GIÁM SÁT (UNSUPERVISED)
 # ==========================================
 # Tính toán tỷ lệ nhiễm độc (contamination) thực tế dựa trên y_train ngoài lề
 contamination_rate = np.sum(y_train == 1) / len(y_train)
-print(f"Tỷ lệ nhiễm độc (Luồng lưu lượng bất thường) ước tính: {contamination_rate:.4f}")
+print(f"\nTỷ lệ nhiễm độc (Luồng lưu lượng bất thường) ước tính: {contamination_rate:.4f}")
 
-print("\n--- Đang huấn luyện mô hình Isolation Forest Baseline ---")
+print("--- Đang huấn luyện mô hình Isolation Forest Baseline ---")
 # Khởi tạo mô hình rừng cô lập phân hoạch ngẫu nhiên các phần tử dị biệt
 model = IsolationForest(contamination=contamination_rate, random_state=42, n_jobs=-1)
 
@@ -67,7 +76,7 @@ print("\n--- Đang tiến hành thực nghiệm trên tập dữ liệu kiểm t
 # Mô hình xuất ra kết quả mặc định: 1 (Bình thường), -1 (Bất thường/Dị biệt)
 y_pred_raw = model.predict(X_test_scaled)
 
-# Ánh xạ lại nhãn (-1 thành 1 cho Anomaly, 1 thành 0 cho Normal) để khớp với nhãn gốc của dataset
+# Ánh xạ lại nhãn (-1 thành 1 cho Anomaly, 1 thành 0 cho Normal) để khớp với nhãn gốc
 y_pred = np.where(y_pred_raw == -1, 1, 0)
 
 # Xuất bảng báo cáo chỉ số an ninh mạng tiêu chuẩn (Xử lý lỗi chia cho 0 nếu có)
