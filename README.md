@@ -20,7 +20,10 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 * **Môi trường:** Google Colab (Xử lý online trên trình duyệt).
 * **Thuật toán baseline:** Isolation Forest (Rừng cô lập) - Thuật toán học máy không giám sát hiệu quả cho bài toán phát hiện phần tử dị biệt.
 * **Trực quan hóa (Demo):** Sử dụng thư viện Seaborn/Matplotlib để vẽ biểu đồ phân phối mẫu (Normal vs Anomaly) và biểu đồ ma trận nhầm lẫn (Confusion Matrix) nhằm đánh giá trực quan hiệu năng hệ thống.
-
+  ### 📊 Kết quả thực nghiệm Baseline (Cập nhật Tuần 02)
+  * Mô hình Isolation Forest Baseline chạy tuyến tính ổn định trên cấu trúc dòng mạng mô phỏng ToN-IoT.
+  * **Độ chính xác tổng thể (Accuracy):** Đạt **76%** trên tập dữ liệu kiểm thử độc lập.
+  * **Minh chứng đồ họa:** File ma trận nhầm lẫn tĩnh `confusion_matrix_ton_iot_final.png` đã được xuất và lưu trữ trực tiếp tại repo này.
 ## 5. Danh sách tài liệu tham khảo ban đầu
 1. OWASP Internet of Things - Top IoT Vulnerabilities.
 2. Bộ dữ liệu huấn luyện mạng IoT thế hệ mới: "The TON_IoT Datasets" hoặc "CICIoT2023 Dataset".
