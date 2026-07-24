@@ -49,6 +49,7 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
     Xem nội dung báo cáo cảnh báo mới nhất
     df_report = pd.read_csv('anomaly_report.csv')
     print(df_report)"
+  
   ->Kết quả mẫu hiển thị trên màn hình (Output) khớp với ⚠️ "detect_anomaly_realtime.py".
 ## 5. Danh sách tài liệu tham khảo ban đầu
 1. OWASP Internet of Things - Top IoT Vulnerabilities.
