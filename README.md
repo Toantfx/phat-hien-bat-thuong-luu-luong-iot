@@ -66,7 +66,7 @@ Hệ thống phát hiện hành vi bất thường trong lưu lượng mạng Io
 ->Kết quả mẫu hiển thị trên màn hình (Output) khớp với ⚠️ "detect_anomaly_realtime.py".
 ## 5. Danh sách tài liệu tham khảo ban đầu
 1. OWASP Internet of Things - Top IoT Vulnerabilities.
-2. Bộ dữ liệu huấn luyện mạng IoT thế hệ mới: "The TON_IoT Datasets" hoặc "CICIoT2023 Dataset".
+2. Bộ dữ liệu huấn luyện mạng IoT thế hệ mới: "CICIoT2023 Dataset".
 3. Tài liệu hướng dẫn thuật toán Isolation Forest từ Scikit-Learn Documentation.
 4. Repo GitHub tham khảo xử lý lưu lượng: https://github.com/scikit-learn/scikit-learn (Thư viện gốc hỗ trợ các mô hình Baseline).
 5. Tài liệu môn học :'https://drive.google.com/drive/folders/1CgVfkRDFyF3NPUsf-ukFDtv-wkqoCx1x'
