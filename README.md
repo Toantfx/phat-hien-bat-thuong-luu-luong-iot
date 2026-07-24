@@ -22,8 +22,9 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 * **Trực quan hóa (Demo):** Sử dụng thư viện Seaborn/Matplotlib để vẽ biểu đồ phân phối mẫu (Normal vs Anomaly) và biểu đồ ma trận nhầm lẫn (Confusion Matrix) nhằm đánh giá trực quan hiệu năng hệ thống.
   ### 📊 Kết quả thực nghiệm Baseline (Cập nhật Tuần 02)
   * Mô hình Isolation Forest Baseline chạy tuyến tính ổn định trên cấu trúc dòng mạng mô phỏng ToN-IoT.
-  * **Độ chính xác tổng thể (Accuracy):** Đạt **76%** trên tập dữ liệu kiểm thử độc lập.
-  *     Accuracy = 76.4%
+  * **Độ chính xác tổng thể (Accuracy):** Đạt **76%** trên tập dữ liệu kiểm thử độc lập. 
+        
+        Accuracy = 76.4%
 
         Precision = 24.8%
 
