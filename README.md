@@ -23,6 +23,13 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
   ### 📊 Kết quả thực nghiệm Baseline (Cập nhật Tuần 02)
   * Mô hình Isolation Forest Baseline chạy tuyến tính ổn định trên cấu trúc dòng mạng mô phỏng ToN-IoT.
   * **Độ chính xác tổng thể (Accuracy):** Đạt **76%** trên tập dữ liệu kiểm thử độc lập.
+  *     Accuracy = 76.4%
+
+        Precision = 24.8%
+
+        Recall = 25.9%
+
+        F1 = 25.3%
   * **Minh chứng đồ họa:** File ma trận nhầm lẫn tĩnh `confusion_matrix_ton_iot_final.png` đã được xuất và lưu trữ trực tiếp tại repo này.
 ## Cấu trúc Repository (Code & Output)
 | Tệp tin | Mô tả chức năng |
