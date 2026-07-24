@@ -1,0 +1,4 @@
+src_ip,src_port,dst_ip,dst_port,proto,packet_count,byte_count,label,anomaly_score,status
+192.168.1.100,55555,10.0.0.1,80,TCP,10000,5000000,anomaly,-1,Anomaly
+192.168.1.101,6666,10.0.0.1,443,TCP,8500,4200000,anomaly,-1,Anomaly
+192.168.1.102,7777,10.0.0.2,22,TCP,12000,6100000,anomaly,-1,Anomaly
