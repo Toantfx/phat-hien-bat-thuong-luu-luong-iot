@@ -24,6 +24,26 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
   * Mô hình Isolation Forest Baseline chạy tuyến tính ổn định trên cấu trúc dòng mạng mô phỏng ToN-IoT.
   * **Độ chính xác tổng thể (Accuracy):** Đạt **76%** trên tập dữ liệu kiểm thử độc lập.
   * **Minh chứng đồ họa:** File ma trận nhầm lẫn tĩnh `confusion_matrix_ton_iot_final.png` đã được xuất và lưu trữ trực tiếp tại repo này.
+## Cấu trúc Repository (Code & Output)
+| Tệp tin | Mô tả chức năng |
+| :--- | :--- |
+| `dataset.csv` | Tập dữ liệu mạng giả lập (>100 dòng) đại diện lưu lượng IoT. |
+| `detect_anomaly.py` | Script Python chạy tĩnh (Offline/Batch Mode) để phát hiện bất thường từ dữ liệu CSV. |
+| `detect_anomaly_realtime.py` | Script Python mô phỏng phát hiện bất thường thời gian thực (Real-time Stream) có in log cảnh báo. |
+| `anomaly_report.csv` | Tệp kết quả đầu ra chứa danh sách các gói tin/dòng lưu lượng bị gán nhãn `Anomaly`. |
+| `confusion_matrix_ton_iot_final.png` | Đồ thị Ma trận nhầm lẫn (Confusion Matrix) đánh giá hiệu năng mô hình. |
+## Hướng dẫn Tái hiện Thực nghiệm (Replication Guide)
+### Môi trường yêu cầu
+- Ngôn ngữ: Python 3.x
+- Thư viện cần thiết: `pandas`, `scikit-learn`
+- Thực thi trực tiếp trên moi trường online **Google Colab**.
+### Các bước chạy kiểm thử
+## Dạng tĩnh (Batch Processing)
+   "python detect_anomaly.py"
+ ->Script sẽ đọc file dataset.csv, chạy mô hình Isolation Forest và tự động xuất kết quả ra file anomaly_report.csv.  
+## Dạng động (Real-time Stream Monitoring)
+   "python detect_anomaly_realtime.py"
+ ->Hệ thống sẽ mô phỏng luồng dữ liệu mạng chảy về liên tục từng giây, dự đoán và in trực tiếp nhãn cảnh báo ⚠️ ANOMALY hoặc ✅ Normal ra màn hình dòng lệnh.  
 ## 5. Danh sách tài liệu tham khảo ban đầu
 1. OWASP Internet of Things - Top IoT Vulnerabilities.
 2. Bộ dữ liệu huấn luyện mạng IoT thế hệ mới: "The TON_IoT Datasets" hoặc "CICIoT2023 Dataset".
