@@ -39,18 +39,20 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 - Thực thi trực tiếp trên moi trường online **Google Colab**.
 ### Các bước chạy kiểm thử
 ## Dạng tĩnh (Batch Processing)
-   "!python detect_anomaly.py"
- ->Script sẽ đọc file dataset.csv, chạy mô hình Isolation Forest và tự động xuất kết quả ra file anomaly_report.csv.  
+    "!python detect_anomaly.py"
+   
+->Script sẽ đọc file dataset.csv, chạy mô hình Isolation Forest và tự động xuất kết quả ra file anomaly_report.csv.  
 ## Dạng động (Real-time Stream Monitoring)
-   "!python detect_anomaly_realtime.py"
- ->Hệ thống sẽ mô phỏng luồng dữ liệu mạng chảy về liên tục từng giây, dự đoán và in trực tiếp nhãn cảnh báo ⚠️ ANOMALY hoặc ✅ Normal ra màn hình dòng lệnh. 
+    "!python detect_anomaly_realtime.py"
+ 
+->Hệ thống sẽ mô phỏng luồng dữ liệu mạng chảy về liên tục từng giây, dự đoán và in trực tiếp nhãn cảnh báo ⚠️ ANOMALY hoặc ✅ Normal ra màn hình dòng lệnh. 
 ## Kiểm tra kết quả cập nhật trong tệp báo cáo (anomaly_report.csv) 
-   "import pandas as pd
+    "Import pandas as pd
     Xem nội dung báo cáo cảnh báo mới nhất
     df_report = pd.read_csv('anomaly_report.csv')
     print(df_report)"
   
-  ->Kết quả mẫu hiển thị trên màn hình (Output) khớp với ⚠️ "detect_anomaly_realtime.py".
+->Kết quả mẫu hiển thị trên màn hình (Output) khớp với ⚠️ "detect_anomaly_realtime.py".
 ## 5. Danh sách tài liệu tham khảo ban đầu
 1. OWASP Internet of Things - Top IoT Vulnerabilities.
 2. Bộ dữ liệu huấn luyện mạng IoT thế hệ mới: "The TON_IoT Datasets" hoặc "CICIoT2023 Dataset".
