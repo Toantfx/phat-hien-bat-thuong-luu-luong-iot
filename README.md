@@ -16,6 +16,9 @@ Sự bùng nổ của các thiết bị IoT mang lại nhiều tiện ích nhưn
 * **Tập dữ liệu sử dụng:** Thực nghiệm trên tập dữ liệu **TON-IoT** (hoặc **CICIoT2023**). Đây là các bộ dữ liệu mới, mô phỏng chính xác các kịch bản tấn công mạng thực tế nhắm vào hệ thống IIoT/IoT thông minh, cung cấp đầy đủ các đặc trưng lưu lượng mạng hiện đại.
 
 ## 4. Công cụ và Môi trường thực hiện
+Hệ thống phát hiện hành vi bất thường trong lưu lượng mạng IoT sử dụng thuật toán Machine Learning (**Isolation Forest**). Hỗ trợ cả 2 chế độ: xử lý dữ liệu tĩnh (Batch) và giám sát luồng dữ liệu thời gian thực (Real-time Stream).
+
+---
 * **Ngôn ngữ:** Python.
 * **Môi trường:** Google Colab (Xử lý online trên trình duyệt).
 * **Thuật toán baseline:** Isolation Forest (Rừng cô lập) - Thuật toán học máy không giám sát hiệu quả cho bài toán phát hiện phần tử dị biệt.
